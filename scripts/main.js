@@ -23,10 +23,11 @@ funktions.addEventListener("click", (e) => {
 
 
 numberButtons.addEventListener("click", (e) => {
-    if (e.target.innerText.length > 1) {
+    let content = e.target.innerText;
+    if (content.length > 1 || content === ".") {
         return;
     }
-    display.innerText += e.target.innerText;
+    display.innerText += content;
     leftOperand = display.innerText;
 });
 
