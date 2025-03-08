@@ -2,9 +2,9 @@ const numberButtons = document.querySelector(".buttons .numbers");
 const display = document.querySelector(".display");
 const reset = document.querySelector("#clear");
 const funktions = document.querySelector(".buttons .funktions");
-let leftOperand;
-let rightOperand;
-let operator;
+let leftOperand = "";
+let rightOperand = "";
+let operator = "";
 
 
 reset.addEventListener("click", () => {
@@ -12,6 +12,7 @@ reset.addEventListener("click", () => {
 });
 
 funktions.addEventListener("click", (e) => {
+    leftOperand = display.innerText;
     let content = e.target.innerText;
     if (content.length > 1 || content === "C" || content === "=") {
         return;
@@ -23,12 +24,18 @@ funktions.addEventListener("click", (e) => {
 
 
 numberButtons.addEventListener("click", (e) => {
+    
     let content = e.target.innerText;
     if (content.length > 1 || content === ".") {
         return;
     }
+
+    display.dataset.context += content 
     display.innerText += content;
-    leftOperand = display.innerText;
+
+    if (display.innerText.includes("+-*/")) {
+        rightOperand = display.dataset.context;
+    }
 });
 
 
