@@ -18,3 +18,16 @@ function divide(a, b) {
 let leftOperand;
 let rightOperand;
 let operator;
+
+function operate(num1 , num2, operator) {
+    switch(operator) {
+        case "+":
+            return add(num1, num2);
+        case "-":
+            return subtract(num1, num2);
+        case "*":
+            return multiply(num1, num2);
+        case "/":
+            return divide(num1, num2);
+    }
+}
