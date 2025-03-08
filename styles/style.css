@@ -16,11 +16,12 @@ body {
     border-radius: 10px;
     display: flex;
     flex-flow: column;
-    padding: 8px;
-    justify-content: space-between;
+    padding: 20px;
     gap: 20px;
     align-items: center;
-
+    width: 500px;
+    height: 500px;
+    box-sizing: border-box;
 }
 
 .calculator .display {
@@ -39,7 +40,31 @@ body {
 }
 
 .buttons button {
-    width: 50px;
-    height: 50px;
-    border-radius: 10px;;
+    width: 60px;
+    height: 60px;
+    border-radius: 10px;
+
+}
+
+.buttons {
+    display: flex;
+    border: 2px solid black;
+    justify-content: space-between;
+    gap: 10px;
+    flex: 1 0 auto;
+    padding: 10px;
+}
+
+.buttons .numbers {
+    /* width: 300px; */
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.buttons .funktions {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    justify-content: flex-end;
 }
