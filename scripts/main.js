@@ -1,8 +1,17 @@
 const numberButtons = document.querySelector(".buttons .numbers");
 const display = document.querySelector(".display");
+// const reset = document.
+let leftOperand;
+let rightOperand;
+let operator;
+
 
 numberButtons.addEventListener("click", (e) => {
+    if (e.target.innerText.length > 1) {
+        return;
+    }
     display.innerText += e.target.innerText;
+    leftOperand = display.innerText;
 });
 
 
@@ -22,9 +31,7 @@ function divide(a, b) {
     return a / b;
 }
 
-let leftOperand;
-let rightOperand;
-let operator;
+
 
 function operate(num1 , num2, operator) {
     switch(operator) {
