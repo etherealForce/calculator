@@ -1,3 +1,11 @@
+const numberButtons = document.querySelector(".buttons .numbers");
+const display = document.querySelector(".display");
+
+numberButtons.addEventListener("click", (e) => {
+    display.innerText += e.target.innerText;
+});
+
+
 function add(a, b) {
     return a + b;
 }
@@ -13,7 +21,6 @@ function multiply(a, b) {
 function divide(a, b) {
     return a / b;
 }
-
 
 let leftOperand;
 let rightOperand;
