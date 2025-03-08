@@ -1,14 +1,25 @@
 const numberButtons = document.querySelector(".buttons .numbers");
 const display = document.querySelector(".display");
 const reset = document.querySelector("#clear");
+const funktions = document.querySelector(".buttons .funktions");
 let leftOperand;
 let rightOperand;
 let operator;
 
 
-reset.addEventListener("click", (e) => {
+reset.addEventListener("click", () => {
     display.innerHTML = "";
 });
+
+funktions.addEventListener("click", (e) => {
+    if (e.target.innerText.length > 1 || e.target.innerText === "C") {
+        return;
+    }
+
+    display.innerText += e.target.innerText;
+    operator = e.target.innerText;
+});
+
 
 numberButtons.addEventListener("click", (e) => {
     if (e.target.innerText.length > 1) {
