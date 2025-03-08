@@ -1,10 +1,14 @@
 const numberButtons = document.querySelector(".buttons .numbers");
 const display = document.querySelector(".display");
-// const reset = document.
+const reset = document.querySelector("#clear");
 let leftOperand;
 let rightOperand;
 let operator;
 
+
+reset.addEventListener("click", (e) => {
+    display.innerHTML = "";
+});
 
 numberButtons.addEventListener("click", (e) => {
     if (e.target.innerText.length > 1) {
