@@ -13,7 +13,7 @@ reset.addEventListener("click", () => {
 
 funktions.addEventListener("click", (e) => {
     let content = e.target.innerText;
-    if (content.length > 1 || content === "C") {
+    if (content.length > 1 || content === "C" || content === "=") {
         return;
     }
 
