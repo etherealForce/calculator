@@ -12,12 +12,13 @@ reset.addEventListener("click", () => {
 });
 
 funktions.addEventListener("click", (e) => {
-    if (e.target.innerText.length > 1 || e.target.innerText === "C") {
+    let content = e.target.innerText;
+    if (content.length > 1 || content === "C") {
         return;
     }
 
-    display.innerText += e.target.innerText;
-    operator = e.target.innerText;
+    display.innerText += content;
+    operator += content;
 });
 
 
