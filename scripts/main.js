@@ -9,9 +9,9 @@ let operator = "";
 let leftStatus = false;
 
 
-// evaluate.addEventListener("click", function() {
-
-// });
+evaluate.addEventListener("click", function() {
+    display.innerHTML = operate(parseFloat(leftOperand), parseFloat(rightOperand), operator);
+});
 
 reset.addEventListener("click", () => {
     display.innerHTML = "";
