@@ -5,37 +5,51 @@ const funktions = document.querySelector(".buttons .funktions");
 let leftOperand = "";
 let rightOperand = "";
 let operator = "";
-
+let leftStatus = false;
 
 reset.addEventListener("click", () => {
     display.innerHTML = "";
+    leftStatus = false;
 });
 
 funktions.addEventListener("click", (e) => {
-    leftOperand = display.innerText;
     let content = e.target.innerText;
-    if (content.length > 1 || content === "C" || content === "=") {
+
+    if (content.length > 1 
+        || content === "C" 
+        || content === "=") {
+        return;
+    }
+    
+
+    if (display.innerHTML === "") {
+        leftOperand += content;
+        display.innerHTML += content;
         return;
     }
 
-    display.innerText += content;
+    display.innerHTML += content;
     operator += content;
+    leftStatus = true;
 });
 
 
 numberButtons.addEventListener("click", (e) => {
-    
     let content = e.target.innerText;
-    if (content.length > 1 || content === ".") {
+    if (content.length > 1 
+        || content === ".") {
         return;
     }
 
-    display.dataset.context += content 
-    display.innerText += content;
+    display.innerHTML += content;
 
-    if (display.innerText.includes("+-*/")) {
-        rightOperand = display.dataset.context;
+    if (leftStatus) {
+        rightOperand += content;
+    } else {
+        leftOperand += content;
     }
+    
+
 });
 
 
