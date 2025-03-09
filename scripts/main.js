@@ -8,6 +8,11 @@ let rightOperand = "";
 let operator = "";
 let leftStatus = false;
 
+
+// evaluate.addEventListener("click", function() {
+
+// });
+
 reset.addEventListener("click", () => {
     display.innerHTML = "";
     leftStatus = false;
@@ -30,7 +35,12 @@ funktions.addEventListener("click", (e) => {
     }
 
     display.innerHTML += content;
-    operator += content;
+    
+    if (leftStatus) {
+        rightOperand += content;
+    } else {
+        operator += content;
+    }
     leftStatus = true;
 });
 
