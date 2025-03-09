@@ -34,8 +34,20 @@ funktions.addEventListener("click", (e) => {
         return;
     }
 
-    display.innerHTML += content;
     
+    
+    if (leftStatus 
+        && leftOperand !== "" 
+        && rightOperand !== "") {
+            leftOperand = operate(parseFloat(leftOperand), parseFloat(rightOperand), operator);
+            display.innerHTML = leftOperand;
+            rightOperand = "";
+            operator = "";
+            leftStatus = false;
+        }
+
+    display.innerHTML += content;
+
     if (leftStatus) {
         rightOperand += content;
     } else {
