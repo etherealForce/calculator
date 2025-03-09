@@ -10,7 +10,7 @@ let leftStatus = false;
 
 
 evaluate.addEventListener("click", function() {
-    display.innerHTML = operate(parseFloat(leftOperand), parseFloat(rightOperand), operator);
+    display.innerHTML = Math.round(operate(parseFloat(leftOperand), parseFloat(rightOperand), operator));
 });
 
 reset.addEventListener("click", () => {
@@ -39,7 +39,7 @@ funktions.addEventListener("click", (e) => {
     if (leftStatus 
         && leftOperand !== "" 
         && rightOperand !== "") {
-            leftOperand = operate(parseFloat(leftOperand), parseFloat(rightOperand), operator);
+            leftOperand = Math.round(operate(parseFloat(leftOperand), parseFloat(rightOperand), operator));
             display.innerHTML = leftOperand;
             rightOperand = "";
             operator = "";
