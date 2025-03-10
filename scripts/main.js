@@ -14,6 +14,8 @@ let leftStatus = false;
 let errorStatus = false;
 // calcCycle to know if a calculator have finished evaluating, allows to reset when its true.
 let calcCycle = false;
+// this is to check whether decimal has been inputted into an operand or not
+let decimalStatus = false;
 
 function resetCalc() {
     display.innerHTML = "";
@@ -22,7 +24,24 @@ function resetCalc() {
     leftOperand = "";
     rightOperand = "";
     operator = "";
+    decimalStatus = false;
 }
+
+
+decimal.addEventListener("click", () => {
+    if (decimalStatus) {
+        return;
+    } else {
+        display.innerHTML += ".";
+        if (!leftStatus) {
+            leftOperand += ".";
+            decimalStatus = true;
+        } else {
+            rightOperand += ".";
+            decimalStatus = true;
+        }
+    }
+})
 
 
 evaluate.addEventListener("click", function() {
@@ -69,10 +88,11 @@ funktions.addEventListener("click", (e) => {
             return;
     }
     
+
+    decimalStatus = false;
     // this part allows user to continuously keep doing operations as they keeping pressing the function keys
     // if left operand is inputted, and both operands have values, evaluate them, put result in left operand
     // and reset left operand status. Also free up the operator to allow the current operator in content to be stored in it.
-
     if (leftStatus 
         && leftOperand !== "" 
         && rightOperand !== "") {
