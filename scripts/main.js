@@ -8,6 +8,7 @@ let rightOperand = "";
 let operator = "";
 let leftStatus = false;
 let errorStatus = false;
+let calcCycle = false;
 
 function resetCalc() {
     display.innerHTML = "";
@@ -31,7 +32,8 @@ evaluate.addEventListener("click", function() {
         errorStatus = true;
         return;
     } else {
-        display.innerHTML = evaluatedValue
+        display.innerHTML = evaluatedValue;
+        calcCycle = true;
     }
     
 });
@@ -89,6 +91,11 @@ funktions.addEventListener("click", (e) => {
 
 numberButtons.addEventListener("click", (e) => {
     let content = e.target.innerText;
+
+    if (calcCycle) {
+        resetCalc();
+        calcCycle = false;
+    }
     if (content.length > 1 
         || content === "."
         || errorStatus) {
