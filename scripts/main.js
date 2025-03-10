@@ -31,9 +31,32 @@ function resetCalc() {
     digitCounter = 0;
 }
 
-// del.addEventListener("click", () => {
+function stringDeleter(strung) {
+    let tempArr =  strung.split("");
+    tempArr.pop();
+    return tempArr.join("");
+}
 
-// });
+
+del.addEventListener("click", () => {
+    if (errorStatus
+        || calcCycle
+    ) {
+        return;
+    } else {
+        if (!leftStatus) {
+            display.innerHTML = stringDeleter(display.innerHTML);
+            leftOperand = stringDeleter(leftOperand);
+        } else if (leftStatus && operator !== "") {
+            display.innerHTML = stringDeleter(display.innerHTML);
+            operator = "";
+            leftStatus = false;
+        }   else {
+            display.innerHTML = stringDeleter(display.innerHTML);
+            rightOperand = stringDeleter(rightOperand);
+        }
+    }
+});
 
 
 decimal.addEventListener("click", () => {
