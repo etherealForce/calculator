@@ -25,7 +25,15 @@ evaluate.addEventListener("click", function() {
         errorStatus = true;
         return;
     }
-    display.innerHTML = Math.round(operate(parseFloat(leftOperand), parseFloat(rightOperand), operator));
+    let evaluatedValue = Math.round(operate(parseFloat(leftOperand), parseFloat(rightOperand), operator));
+    if (evaluatedValue === Infinity) {
+        display.innerHTML = "Really? Dividing by 0? I expected better from you";
+        errorStatus = true;
+        return;
+    } else {
+        display.innerHTML = evaluatedValue
+    }
+    
 });
 
 reset.addEventListener("click", resetCalc);
