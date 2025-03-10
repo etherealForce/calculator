@@ -29,7 +29,7 @@ function resetCalc() {
 
 
 decimal.addEventListener("click", () => {
-    if (decimalStatus) {
+    if (decimalStatus || errorStatus) {
         return;
     } else {
         display.innerHTML += ".";
