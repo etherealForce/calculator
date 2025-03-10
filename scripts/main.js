@@ -25,9 +25,9 @@ evaluate.addEventListener("click", function() {
         errorStatus = true;
         return;
     }
-    let evaluatedValue = Math.round(operate(parseFloat(leftOperand), parseFloat(rightOperand), operator));
+    let evaluatedValue = Math.round(operate(parseFloat(leftOperand), parseFloat(rightOperand), operator) * 10000000) / 10000000;
     if (evaluatedValue === Infinity) {
-        display.innerHTML = "Really? Dividing by 0? I expected better from you";
+        display.innerHTML = "nub";
         errorStatus = true;
         return;
     } else {
@@ -61,7 +61,7 @@ funktions.addEventListener("click", (e) => {
     if (leftStatus 
         && leftOperand !== "" 
         && rightOperand !== "") {
-            leftOperand = Math.round(operate(parseFloat(leftOperand), parseFloat(rightOperand), operator));
+            leftOperand = Math.round(operate(parseFloat(leftOperand), parseFloat(rightOperand), operator) * 10000000) / 10000000;
             display.innerHTML = leftOperand;
             rightOperand = "";
             operator = "";
