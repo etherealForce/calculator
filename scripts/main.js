@@ -8,8 +8,11 @@ const decimal = document.querySelector("#decimal")
 let leftOperand = "";
 let rightOperand = "";
 let operator = "";
+//leftStatus to know if user is done inputting into the left operand
 let leftStatus = false;
+// errorStatus in order to stop the calculator from functioning 
 let errorStatus = false;
+// calcCycle to know if a calculator have finished evaluating, allows to reset when its true.
 let calcCycle = false;
 
 function resetCalc() {
@@ -23,12 +26,15 @@ function resetCalc() {
 
 
 evaluate.addEventListener("click", function() {
+    // display syntax error when you do something like 4+= or -32-=, etc
     if (leftOperand === "" || rightOperand === "") {
         display.innerHTML = "Syntax Error";
         errorStatus = true;
         return;
     }
     let evaluatedValue = Math.round(operate(parseFloat(leftOperand), parseFloat(rightOperand), operator) * 10000000) / 10000000;
+
+    // Handle divide by zero. Snarking error message
     if (evaluatedValue === Infinity) {
         display.innerHTML = "nub";
         errorStatus = true;
@@ -45,6 +51,7 @@ reset.addEventListener("click", resetCalc);
 funktions.addEventListener("click", (e) => {
     let content = e.target.innerText;
 
+    //stops when using other functions and disallow inputs when in error statuses
     if (content.length > 1 
         || content === "C" 
         || content === "="
@@ -53,7 +60,7 @@ funktions.addEventListener("click", (e) => {
         return;
     }
   
-
+    // this part allows the operators to be part of the left operand like -6
     if (display.innerHTML === "") {
         leftOperand += content;
         display.innerHTML += content;
@@ -98,6 +105,8 @@ numberButtons.addEventListener("click", (e) => {
         resetCalc();
         calcCycle = false;
     }
+
+    //handle event delegation error(clicking outside of buttons) and disallow user to input when SyntaxError or any errorstatuses
     if (content.length > 1 
         || content === "."
         || errorStatus) {
