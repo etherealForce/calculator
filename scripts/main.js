@@ -69,6 +69,10 @@ funktions.addEventListener("click", (e) => {
             return;
     }
     
+    // this part allows user to continuously keep doing operations as they keeping pressing the function keys
+    // if left operand is inputted, and both operands have values, evaluate them, put result in left operand
+    // and reset left operand status. Also free up the operator to allow the current operator in content to be stored in it.
+
     if (leftStatus 
         && leftOperand !== "" 
         && rightOperand !== "") {
