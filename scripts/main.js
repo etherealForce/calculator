@@ -10,6 +10,10 @@ let leftStatus = false;
 
 
 evaluate.addEventListener("click", function() {
+    if (leftOperand === "" || rightOperand === "") {
+        display.innerHTML = "Syntax Error";
+        return;
+    }
     display.innerHTML = Math.round(operate(parseFloat(leftOperand), parseFloat(rightOperand), operator));
 });
 
