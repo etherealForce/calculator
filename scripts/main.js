@@ -6,6 +6,8 @@ const evaluate = document.querySelector("#evaluate");
 const decimal = document.querySelector("#decimal")
 const del = document.querySelector("#del");
 
+
+let digitCounter = 0;
 let leftOperand = "";
 let rightOperand = "";
 let operator = "";
@@ -26,7 +28,12 @@ function resetCalc() {
     rightOperand = "";
     operator = "";
     decimalStatus = false;
+    digitCounter = 0;
 }
+
+// del.addEventListener("click", () => {
+
+// });
 
 
 decimal.addEventListener("click", () => {
@@ -89,7 +96,7 @@ funktions.addEventListener("click", (e) => {
             return;
     }
     
-
+    digitCounter = 0;
     decimalStatus = false;
     // this part allows user to continuously keep doing operations as they keeping pressing the function keys
     // if left operand is inputted, and both operands have values, evaluate them, put result in left operand
@@ -125,7 +132,7 @@ funktions.addEventListener("click", (e) => {
 
 numberButtons.addEventListener("click", (e) => {
     let content = e.target.innerText;
-
+    digitCounter++;
     if (calcCycle) {
         resetCalc();
         calcCycle = false;
@@ -134,7 +141,8 @@ numberButtons.addEventListener("click", (e) => {
     //handle event delegation error(clicking outside of buttons) and disallow user to input when SyntaxError or any errorstatuses
     if (content.length > 1 
         || content === "."
-        || errorStatus) {
+        || errorStatus
+        || digitCounter > 8) {
         return;
     }
 
