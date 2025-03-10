@@ -7,27 +7,33 @@ let leftOperand = "";
 let rightOperand = "";
 let operator = "";
 let leftStatus = false;
+let errorStatus = false;
+
+function resetCalc() {
+    display.innerHTML = "";
+    leftStatus = false;
+}
 
 
 evaluate.addEventListener("click", function() {
     if (leftOperand === "" || rightOperand === "") {
         display.innerHTML = "Syntax Error";
+        errorStatus = true;
         return;
     }
     display.innerHTML = Math.round(operate(parseFloat(leftOperand), parseFloat(rightOperand), operator));
 });
 
-reset.addEventListener("click", () => {
-    display.innerHTML = "";
-    leftStatus = false;
-});
+reset.addEventListener("click", resetCalc);
 
 funktions.addEventListener("click", (e) => {
     let content = e.target.innerText;
 
     if (content.length > 1 
         || content === "C" 
-        || content === "=") {
+        || content === "="
+        || errorStatus) {
+        errorStatus = false;
         return;
     }
     
@@ -48,6 +54,14 @@ funktions.addEventListener("click", (e) => {
             rightOperand = "";
             operator = "";
             leftStatus = false;
+        } else if (rightOperand === "" && operator !== "") {
+            let tempArr = display.innerText.split("");
+            tempArr.pop();
+            display.innerHTML = tempArr.join("");
+
+            display.innerHTML += content;
+            operator = content;
+            return;
         }
 
     display.innerHTML += content;
@@ -64,7 +78,9 @@ funktions.addEventListener("click", (e) => {
 numberButtons.addEventListener("click", (e) => {
     let content = e.target.innerText;
     if (content.length > 1 
-        || content === ".") {
+        || content === "."
+        || errorStatus) {
+        errorStatus = false;
         return;
     }
 
