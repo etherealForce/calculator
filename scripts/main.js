@@ -50,24 +50,24 @@ reset.addEventListener("click", resetCalc);
 
 funktions.addEventListener("click", (e) => {
     let content = e.target.innerText;
-
-    //stops when using other functions and disallow inputs when in error statuses
-    if (content.length > 1 
-        || content === "C" 
-        || content === "="
-        || (errorStatus)
-        ) {
-        return;
-    }
   
     // this part allows the operators to be part of the left operand like -6
-    if (display.innerHTML === "") {
+    if (display.innerHTML === "" && content === "-") {
         leftOperand += content;
         display.innerHTML += content;
         return;
     }
 
-    
+    //stops when using other functions and disallow inputs when in error statuses
+    if (content.length > 1 
+            || content === "C" 
+            || content === "="
+            || (errorStatus)
+            || display.innerHTML === ""
+            || display.innerHTML === "-"
+            ) {
+            return;
+    }
     
     if (leftStatus 
         && leftOperand !== "" 
