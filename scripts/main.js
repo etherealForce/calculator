@@ -12,6 +12,10 @@ let errorStatus = false;
 function resetCalc() {
     display.innerHTML = "";
     leftStatus = false;
+    errorStatus = false;
+    leftOperand = "";
+    rightOperand = "";
+    operator = "";
 }
 
 
@@ -32,11 +36,11 @@ funktions.addEventListener("click", (e) => {
     if (content.length > 1 
         || content === "C" 
         || content === "="
-        || errorStatus) {
-        errorStatus = false;
+        || (errorStatus)
+        ) {
         return;
     }
-    
+  
 
     if (display.innerHTML === "") {
         leftOperand += content;
@@ -80,7 +84,6 @@ numberButtons.addEventListener("click", (e) => {
     if (content.length > 1 
         || content === "."
         || errorStatus) {
-        errorStatus = false;
         return;
     }
 
