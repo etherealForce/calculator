@@ -3,6 +3,8 @@ const display = document.querySelector(".display");
 const reset = document.querySelector("#clear");
 const funktions = document.querySelector(".buttons .funktions");
 const evaluate = document.querySelector("#evaluate");
+const decimal = document.querySelector("#decimal")
+
 let leftOperand = "";
 let rightOperand = "";
 let operator = "";
