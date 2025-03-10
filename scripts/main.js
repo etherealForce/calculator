@@ -4,6 +4,7 @@ const reset = document.querySelector("#clear");
 const funktions = document.querySelector(".buttons .funktions");
 const evaluate = document.querySelector("#evaluate");
 const decimal = document.querySelector("#decimal")
+const del = document.querySelector("#del");
 
 let leftOperand = "";
 let rightOperand = "";
