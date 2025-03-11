@@ -44,7 +44,6 @@ a {
     display: flex;
     flex-flow: column;
     padding: 20px;
-    gap: 20px;
     align-items: center;
     width: 500px;
     height: 500px;
@@ -66,6 +65,15 @@ a {
     padding: 8px;
     box-sizing: border-box;
     background-color: #EBE5C2;
+    margin: 10px 0 20px 0;
+}
+
+.love {
+    align-self: flex-start;
+    font-size: 18px;
+    font-weight: 700;
+    margin-left: 23px;
+    color: #5C7285;
 }
 
 .buttons button {
