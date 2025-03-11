@@ -80,16 +80,25 @@ a {
     width: 60px;
     height: 60px;
     border-radius: 10px;
+    font-weight: 700;
+    font-size: 18px;
+    background-color: #AAB99A;
+    border: 5px solid #323d40;
+}
 
+.buttons button:hover {
+    background-color: #727D73;
+    border: 5px solid #AAB99A;
 }
 
 .buttons {
     display: flex;
-    border: 2px solid black;
+    border: 2px solid #5C7285;
     justify-content: space-between;
     gap: 10px;
     flex: 1 0 auto;
     padding: 10px;
+    background-color: #A6AEBF;
 }
 
 .buttons .numbers {
