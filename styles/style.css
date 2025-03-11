@@ -11,18 +11,19 @@ body {
     justify-content: center;
     align-items: center;
     gap: 100px;
-    background-color: #727462;
+    background-color: #ADB2D4;
 }
 
 
 .header .title {
     margin: auto;
-    color: #2d2e2a;
-    font-size: 40px;;
+    color: #574964;
+    font-size: 40px;
+    font-weight: 900;
 }
 
 .header .creator {
-    color:#89b5a7;
+    color:#504B38;
     font-size: 18px;
     font-weight: 800;
 }
@@ -34,7 +35,7 @@ body {
 
 a {
     text-decoration: none;
-    color:aquamarine
+    color:#727D73
 }
 
 .container.calculator {
