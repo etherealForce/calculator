@@ -90,6 +90,7 @@ evaluate.addEventListener("click", function() {
         errorStatus = true;
         return;
     } else {
+        // Handle 0/0 by making it 0
         if (Number.isNaN(evaluatedValue)) {
             evaluatedValue = 0;
         }
@@ -131,6 +132,7 @@ funktions.addEventListener("click", (e) => {
         && leftOperand !== "" 
         && rightOperand !== "") {
             leftOperand = Math.round(operate(parseFloat(leftOperand), parseFloat(rightOperand), operator) * 10000000) / 10000000;
+            // Handle 0/0 by making it 0
             if (Number.isNaN(leftOperand)) {
                 leftOperand = 0;
             }
