@@ -7,31 +7,28 @@
 body {
     min-height: 100vh;
     /* background-color: #685454ce; */
-    flex-direction: column;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 100px;
+    background-color: #727462;
 }
 
-.header {
-    display: flex;
-    justify-content:flex-end;
-    align-items: center;
-    padding: 20px;
-    background-color: #524444;
-}
 
 .header .title {
     margin: auto;
-    color: #bfafaf;
+    color: #2d2e2a;
     font-size: 40px;;
 }
 
 .header .creator {
-    color:#bfafaf;
+    color:#89b5a7;
     font-size: 18px;
     font-weight: 800;
 }
 
 .header .creator a:hover {
-    color:#467094;
+    color:#1a3434;
 }
 
 
