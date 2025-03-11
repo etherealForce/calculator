@@ -49,6 +49,7 @@ a {
     height: 500px;
     box-sizing: border-box;
     background-color: #a0bfc4;
+    flex-shrink: 0;
 }
 
 .calculator .display {
