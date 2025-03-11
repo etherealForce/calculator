@@ -119,6 +119,7 @@ funktions.addEventListener("click", (e) => {
             || (errorStatus)
             || display.innerHTML === ""
             || display.innerHTML === "-"
+            || calcCycle
             ) {
             return;
     }
