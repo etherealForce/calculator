@@ -85,11 +85,14 @@ evaluate.addEventListener("click", function() {
     let evaluatedValue = Math.round(operate(parseFloat(leftOperand), parseFloat(rightOperand), operator) * 10000000) / 10000000;
 
     // Handle divide by zero. Snarking error message
-    if (evaluatedValue === Infinity || Number.isNaN(evaluatedValue)) {
+    if (evaluatedValue === Infinity) {
         display.innerHTML = "u ok?";
         errorStatus = true;
         return;
     } else {
+        if (Number.isNaN(evaluatedValue)) {
+            evaluatedValue = 0;
+        }
         display.innerHTML = evaluatedValue;
         calcCycle = true;
     }
@@ -128,6 +131,9 @@ funktions.addEventListener("click", (e) => {
         && leftOperand !== "" 
         && rightOperand !== "") {
             leftOperand = Math.round(operate(parseFloat(leftOperand), parseFloat(rightOperand), operator) * 10000000) / 10000000;
+            if (Number.isNaN(leftOperand)) {
+                leftOperand = 0;
+            }
             display.innerHTML = leftOperand;
             rightOperand = "";
             operator = "";
