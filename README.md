@@ -11,3 +11,6 @@ Tuesday March 11th, 2025
 Finished for now. The project have 2 branches for now. nan and main. nan brnach handles 0/0 or nans by returning 0. and thats basically it while main branch just throws a snarky error message.
 
 I also chose a pastel theme of my project because it looks nice in my eyes. That is it for now.
+
+
+Also all the bug fixes from now are in the main branch so if you are testing nan branch and see some thing like Infinity + 1 possible, its mostly likely in the main branch
