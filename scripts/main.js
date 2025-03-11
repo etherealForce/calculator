@@ -129,6 +129,12 @@ funktions.addEventListener("click", (e) => {
         && leftOperand !== "" 
         && rightOperand !== "") {
             leftOperand = Math.round(operate(parseFloat(leftOperand), parseFloat(rightOperand), operator) * 10000000) / 10000000;
+            // test if 0/0 or dividing by zeros are not allowed; snarky error message
+            if (Number.isNaN(leftOperand) || leftOperand === Infinity) {
+                display.innerHTML = "u ok?";
+                errorStatus = true;
+                return;
+            }
             display.innerHTML = leftOperand;
             rightOperand = "";
             operator = "";
