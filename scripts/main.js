@@ -85,8 +85,8 @@ evaluate.addEventListener("click", function() {
     let evaluatedValue = Math.round(operate(parseFloat(leftOperand), parseFloat(rightOperand), operator) * 10000000) / 10000000;
 
     // Handle divide by zero. Snarking error message
-    if (evaluatedValue === Infinity) {
-        display.innerHTML = "nub";
+    if (evaluatedValue === Infinity || Number.isNaN(evaluatedValue)) {
+        display.innerHTML = "u ok?";
         errorStatus = true;
         return;
     } else {
@@ -155,11 +155,7 @@ funktions.addEventListener("click", (e) => {
 
 numberButtons.addEventListener("click", (e) => {
     let content = e.target.innerText;
-    digitCounter++;
-    if (calcCycle) {
-        resetCalc();
-        calcCycle = false;
-    }
+
 
     //handle event delegation error(clicking outside of buttons) and disallow user to input when SyntaxError or any errorstatuses
     if (content.length > 1 
@@ -167,6 +163,12 @@ numberButtons.addEventListener("click", (e) => {
         || errorStatus
         || digitCounter > 8) {
         return;
+    }
+
+    digitCounter++;
+    if (calcCycle) {
+        resetCalc();
+        calcCycle = false;
     }
 
     display.innerHTML += content;
