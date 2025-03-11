@@ -85,7 +85,9 @@ evaluate.addEventListener("click", function() {
     let evaluatedValue = Math.round(operate(parseFloat(leftOperand), parseFloat(rightOperand), operator) * 10000000) / 10000000;
 
     // Handle divide by zero. Snarking error message
-    if (evaluatedValue === Infinity || Number.isNaN(evaluatedValue)) {
+    if (evaluatedValue === Infinity 
+        || Number.isNaN(evaluatedValue)
+        || evaluatedValue === -Infinity) {
         display.innerHTML = "u ok?";
         errorStatus = true;
         return;
@@ -130,7 +132,9 @@ funktions.addEventListener("click", (e) => {
         && rightOperand !== "") {
             leftOperand = Math.round(operate(parseFloat(leftOperand), parseFloat(rightOperand), operator) * 10000000) / 10000000;
             // test if 0/0 or dividing by zeros are not allowed; snarky error message
-            if (Number.isNaN(leftOperand) || leftOperand === Infinity) {
+            if (Number.isNaN(leftOperand) 
+                || leftOperand === Infinity
+                || leftOperand === -Infinity) {
                 display.innerHTML = "u ok?";
                 errorStatus = true;
                 return;
