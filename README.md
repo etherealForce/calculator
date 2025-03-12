@@ -13,4 +13,4 @@ Finished for now. The project have 2 branches for now. nan and main. nan brnach 
 I also chose a pastel theme of my project because it looks nice in my eyes. That is it for now.
 
 
-Also all the bug fixes from now are in the main branch so if you are testing nan branch and see some thing like Infinity + 1 possible, its mostly likely in the main branch
+Also all the bug fixes from now are in the main branch so if you are testing nan branch and see some thing like Infinity + 1 possible, its mostly likely fixed in the main branch
