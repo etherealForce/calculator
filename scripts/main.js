@@ -37,6 +37,10 @@ function stringDeleter(strung) {
     return tempArr.join("");
 }
 
+function getFinalSubstr(strung) {
+    return strung.at(-1);
+}
+
 
 del.addEventListener("click", () => {
     if (errorStatus
@@ -45,13 +49,19 @@ del.addEventListener("click", () => {
         return;
     } else {
         if (!leftStatus) {
+            if (display.innerHTML.at(-1) === ".") {
+                decimalStatus = false;
+            } 
             display.innerHTML = stringDeleter(display.innerHTML);
             leftOperand = stringDeleter(leftOperand);
-        } else if (leftStatus && operator !== "") {
+        } else if (leftStatus && operator !== "" && rightOperand === "") {
             display.innerHTML = stringDeleter(display.innerHTML);
             operator = "";
             leftStatus = false;
         }   else {
+            if (display.innerHTML.at(-1) === ".") {
+                decimalStatus = false;
+            } 
             display.innerHTML = stringDeleter(display.innerHTML);
             rightOperand = stringDeleter(rightOperand);
         }
